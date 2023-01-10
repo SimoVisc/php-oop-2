@@ -11,6 +11,10 @@
     $this -> category = $_category;
     $this -> price = $_price;
   }
+  
+  public function getInfo(){
+    return "Dimensioni: {$this->size} e materiale: {$this->material}";
+  }
 }
 
 ?>
