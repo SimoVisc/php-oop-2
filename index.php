@@ -5,6 +5,10 @@ require_once __DIR__ ."/classes/toy.php";
 require_once __DIR__ ."/classes/kennel.php";
 require_once __DIR__ ."/classes/category.php";
 
+// categorie
+$dog= new Category("cane","<i class=\"fa-solid fa-dog\"></i>" );
+$cat= new Category("gatto","<i class=\"fa-solid fa-cat\"></i>" );
+
 // prodotti
 $food = new Food("DOGGY SNACK", "https://www.isoladeitesori.it/dw/image/v2/BGRZ_PRD/on/demandware.static/-/Sites-it-master-catalog/default/dw51dd5f69/idt/138319_1.jpg?sw=800&sh=800", 3.50,$dog);
 $food-> setBrand("NaturalPet");
@@ -38,6 +42,35 @@ $products= [
     <title>Php OOP</title>
 </head>
 <body>
-    
+<h1 class="text-bg-warning p-3">PET STORE</h1>
+    <div class="container">
+      <div class=" row ">
+        <?php foreach($products as $product){?>
+         <div class="col-4">
+              <div class="card">
+                 <img src="<?php echo $product->getImage() ?>" class="card-img-top" alt="<?php echo $product->getName() ?>">
+                 <div class="card-body">
+                    <div class="fs-2"><?php echo $product->getCategory()->getIcon() ?></div>
+                     <h5 class="card-title"><?= $product-> getName(); ?></h5>
+                     <p class="card-text"><strong>Prezzo:</strong><?php echo $product->getPrice(); ?> €</p>
+                     <?php if( method_exists($product, "getBrand")) { ?>
+                     <p><strong class="mr-3">Marca:</strong><?php echo $product->getBrand() ?></p>
+                     <?php }?>
+                     <?php if( method_exists($product, "getIngredient")) { ?>
+                     <p><strong class="mr-3">Ingredienti:</strong><?php echo $product->getIngredient() ?></p>
+                     <?php }?>
+                     <?php if( method_exists($product, "getSize")) { ?>
+                     <p><strong class="mr-3">Dimensioni:</strong><?php echo $product->getSize() ?> cm</p>
+                     <?php }?>
+                     <?php if( method_exists($product, "getSize")) { ?>
+                     <p><strong class="mr-3">Materiale:</strong><?php echo $product->getMaterial() ?></p>
+                     <?php }?>
+                     <a href="#" class="btn btn-dark">ACQUISTA</a>
+                 </div>
+              </div>
+         </div>
+         <?php }?>
+      </div>
+  </div> 
 </body>
 </html>
