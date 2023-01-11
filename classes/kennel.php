@@ -1,17 +1,23 @@
 <?php
- class Kennel{
-  public $name;
-  public $categories;
-  public $price;
-  public $size;
-
-  public function __construct(string $_name , array $_category , int $_price){
-    $this -> name = $_name;
-    $this -> categories = $_category;
-    $this -> price = $_price;
+require_once __DIR__ . "/product.php";
+class Kennel extends Product{
+  private $size;
+  private $material;
+  
+  public function setSize($size){
+    $this-> size = $size;
   }
-  public function getInfo(){
-    return "Dimensioni: {$this->size} ";
+
+  public function getSize(){
+    return $this->size;
+  }
+  
+  public function setMaterial($material){
+    $this-> material = $material;
+  }
+
+  public function getMaterial(){
+    return $this->material;
   }
 }
 
