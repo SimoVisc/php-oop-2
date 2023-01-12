@@ -1,8 +1,9 @@
 <?php
 
-
+require_once __DIR__ . "/../traits/name.php";
 class Product{
-  private $name;
+  use name;
+  
   private $image;
   private $price;
   private $category;
@@ -16,11 +17,7 @@ class Product{
     $this->category=$category;
 
   }
-
-  public function getName()
-  {
-    return $this->name;
-  }
+ 
   public function getImage()
   {
     return $this->image;

@@ -1,7 +1,8 @@
 <?php
-
+require_once __DIR__ . "/../traits/name.php";
 class Category{
-    private $name;
+    use name;
+
     private $icon;
    
     public function __construct(string $name, string $icon)
@@ -10,10 +11,6 @@ class Category{
        $this->icon = $icon;
     }
 
-    public function getName()
-    {
-        return $this->name;
-    }
     public function getIcon()
     {
         return $this->icon;
